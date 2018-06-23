@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Evaluation.Application.AppServices.Interfaces;
 using Evaluation.Application.ViewModels;
 using Evaluation.Domain.Model.Entities;
@@ -14,7 +9,9 @@ namespace Evaluation.Application.AppServices
 {
     public class QuestionAppService : BaseAppService<IQuestionService, Question, QuestionViewModel>, IQuestionAppService
     {
-        public QuestionAppService(IQuestionService repository, IUnitOfWork uow, IMapper mapper) : base(repository, uow, mapper)
+        public QuestionAppService(IQuestionService repository, IUnitOfWork uow)//, IMapper autoMapper) 
+            : base(repository,
+            uow)//,autoMapper)
         {
         }
     }

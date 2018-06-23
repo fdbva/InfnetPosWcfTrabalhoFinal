@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace Evaluation.Application.ViewModels
 {
+    [DataContract]
     public class QuestionViewModel : BaseViewModel
     {
-        
+        [DataMember] public string Text { get; set; }
     }
 }

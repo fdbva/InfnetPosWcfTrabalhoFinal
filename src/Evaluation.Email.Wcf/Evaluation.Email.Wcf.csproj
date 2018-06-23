@@ -61,26 +61,62 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service1.svc" />
+    <None Include="Connected Services\EmailWcfService\EmailService.disco" />
+    <None Include="Connected Services\EmailWcfService\configuration91.svcinfo" />
+    <None Include="Connected Services\EmailWcfService\configuration.svcinfo" />
+    <Content Include="Connected Services\EmailWcfService\Evaluation.Email.Wcf.EmailWcfService.EmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\EmailWcfService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ManualEmailSender.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="Connected Services\EmailWcfService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="IService1.cs" />
+    <Compile Include="DTO\SendByQuestionaryIdRequest.cs" />
+    <Compile Include="DTO\SendByQuestionaryIdResponse.cs" />
+    <Compile Include="IManualEmailSender.cs" />
+    <Compile Include="ManualEmailSender.svc.cs">
+      <DependentUpon>ManualEmailSender.svc</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\EmailWcfService\EmailService.wsdl" />
+    <None Include="Connected Services\EmailWcfService\EmailService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmailWcfService\EmailService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmailWcfService\EmailService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmailWcfService\EmailService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\EmailWcfService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

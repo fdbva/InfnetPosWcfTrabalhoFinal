@@ -1,9 +1,7 @@
-﻿using Evaluation.Domain.Model.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Evaluation.Domain.Model.Entities;
 using Evaluation.Domain.Model.Interfaces.Repositories;
 using Evaluation.Domain.Model.Interfaces.Services;
 
@@ -18,14 +16,14 @@ namespace Evaluation.Domain.Service.Services
             _repository = repository;
         }
 
-        public virtual Task<TEntity> AddAsync(TEntity obj)
+        public virtual async Task<TEntity> AddAsync(TEntity obj)
         {
-            return _repository.AddAsync(obj);
+            return await _repository.AddAsync(obj);
         }
 
-        public virtual Task<TEntity> FindAsync(Guid id)
+        public virtual async Task<TEntity> FindAsync(Guid id)
         {
-            return _repository.FindAsync(id);
+            return await _repository.FindAsync(id);
         }
 
         public virtual IEnumerable<TEntity> GetAllAsNoTracking()
@@ -38,9 +36,9 @@ namespace Evaluation.Domain.Service.Services
             return _repository.Update(obj);
         }
 
-        public virtual Task RemoveAsync(Guid id)
+        public virtual async Task RemoveAsync(Guid id)
         {
-            return _repository.RemoveAsync(id);
+            await _repository.RemoveAsync(id);
         }
 
         public virtual void Remove(TEntity obj)

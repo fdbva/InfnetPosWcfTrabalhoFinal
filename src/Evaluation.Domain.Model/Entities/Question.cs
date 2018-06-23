@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Evaluation.Domain.Model.Entities
+﻿namespace Evaluation.Domain.Model.Entities
 {
     public class Question : BaseEntity
     {
-        
+        public string Text { get; set; }
+        //public QuestionGroup QuestionGroup { get; set; }
+        //public Questionary Questionary { get; set; }
     }
 }

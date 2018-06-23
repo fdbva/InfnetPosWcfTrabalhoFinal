@@ -1,5 +1,3 @@
-using System;
-
 namespace Evaluation.AdminUi.Models
 {
     public class ErrorViewModel

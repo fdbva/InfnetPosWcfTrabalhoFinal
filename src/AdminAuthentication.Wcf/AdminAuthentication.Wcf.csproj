@@ -61,14 +61,17 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service1.svc" />
+    <Content Include="AdminUserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="AdminUserService.svc.cs">
+      <DependentUpon>AdminUserService.svc</DependentUpon>
     </Compile>
-    <Compile Include="IService1.cs" />
+    <Compile Include="DTO\AddUserInvalidFieldFault.cs" />
+    <Compile Include="DTO\AddUserRequest.cs" />
+    <Compile Include="DTO\AddUserResponse.cs" />
+    <Compile Include="IAdminUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

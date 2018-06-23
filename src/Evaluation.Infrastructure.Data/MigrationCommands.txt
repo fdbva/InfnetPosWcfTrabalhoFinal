@@ -1,0 +1,10 @@
+﻿Alterar <TargetFramework>netstandard2.0</TargetFramework>
+para <TargetFrameworks>netstandard2.0;netcoreapp2.1</TargetFrameworks>
+
+No Evaluation.AdminUi adicionar no Startup.cs
+	services.AddAutoMapper();
+	NativeInjectorBootstrapper.RegisterServices(services);
+
+No console, no root do Evaluation.Infrastructure.Data executar:
+dotnet ef migrations add InitialCreate --startup-project ../Evaluation.AdminUi/
+dotnet ef database update --startup-project ../Evaluation.AdminUi/

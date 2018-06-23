@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Evaluation.Domain.Model.Interfaces.UnitOfWork;
 using Evaluation.Infrastructure.Data.Context;
@@ -42,8 +39,10 @@ namespace Evaluation.Infrastructure.Data.UoW
                     _context.Dispose();
                 }
             }
+
             _disposed = true;
         }
+
         public void Dispose()
         {
             Dispose(true);

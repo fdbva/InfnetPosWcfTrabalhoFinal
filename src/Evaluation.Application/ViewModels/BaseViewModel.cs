@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Evaluation.Application.ViewModels
 {
+    [DataContract]
     public class BaseViewModel
     {
-        [Key]
-        public Guid Id { get; set; }
+        [Key] [DataMember] public Guid Id { get; set; }
     }
 }

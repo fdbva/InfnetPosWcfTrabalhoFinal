@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Email.Wcf.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Email.Wcf.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:19346/EmailService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:19346/EmailService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Net" />
+  <xs:complexType name="ArrayOfEmailRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailRequest" nillable="true" type="tns:EmailRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailRequest" nillable="true" type="tns:ArrayOfEmailRequest" />
+  <xs:complexType name="EmailRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaluationId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Recipient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailRequest" nillable="true" type="tns:EmailRequest" />
+  <xs:complexType name="ArrayOfEmailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailResponse" nillable="true" type="tns:EmailResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailResponse" nillable="true" type="tns:ArrayOfEmailResponse" />
+  <xs:complexType name="EmailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EvaluationId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Recipient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseMessage" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Net" minOccurs="0" name="Status" type="q1:HttpStatusCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailResponse" nillable="true" type="tns:EmailResponse" />
+</xs:schema>

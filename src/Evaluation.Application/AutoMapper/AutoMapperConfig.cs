@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 
 namespace Evaluation.Application.AutoMapper
 {
@@ -11,10 +6,7 @@ namespace Evaluation.Application.AutoMapper
     {
         public static MapperConfiguration RegisterMappings()
         {
-            return new MapperConfiguration(x =>
-            {
-                x.AddProfile(new MappingsWithReverse());
-            });
+            return new MapperConfiguration(x => { x.AddProfile(new MappingsWithReverse()); });
         }
     }
 }

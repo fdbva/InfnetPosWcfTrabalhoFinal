@@ -1,0 +1,4 @@
+﻿<%@ ServiceHost Language="C#" Debug="true"
+    Service="Evaluation.RespondentUi.Wcf.RespondentUiService"
+    CodeBehind="RespondentUiService.svc.cs"
+    %>

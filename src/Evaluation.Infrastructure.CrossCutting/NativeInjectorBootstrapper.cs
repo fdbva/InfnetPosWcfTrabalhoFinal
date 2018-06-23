@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Evaluation.Application.AppServices;
 using Evaluation.Application.AppServices.Interfaces;
 using Evaluation.Domain.Model.Interfaces.Repositories;
@@ -23,7 +18,8 @@ namespace Evaluation.Infrastructure.CrossCutting
         {
             // 2 - Application AutoMapper
             services.AddSingleton(Mapper.Configuration);
-            services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
+            services.AddScoped<IMapper>(
+                sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
 
             // 2 - Application AppServices
             services.AddScoped(typeof(IQuestionAppService), typeof(QuestionAppService));

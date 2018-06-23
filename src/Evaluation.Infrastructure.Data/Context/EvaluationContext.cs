@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Evaluation.Domain.Model.Entities;
 using Evaluation.Infrastructure.Data.EntitiesConfig;
 using Microsoft.EntityFrameworkCore;
@@ -15,14 +10,20 @@ namespace Evaluation.Infrastructure.Data.Context
     {
         public DbSet<Question> Questions { get; set; }
 
+        public EvaluationContext(DbContextOptions<EvaluationContext> options) : base(options)
+        {
+            
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
+            //var config = new ConfigurationBuilder()
+            //    .SetBasePath(Directory.GetCurrentDirectory())
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
 
-            optionsBuilder.UseSqlServer(config.GetConnectionString("EvaluationLocalMsSql"));
+            //optionsBuilder.UseSqlServer(config.GetConnectionString("EvaluationLocalMsSql"));
+            optionsBuilder.UseSqlServer("Server=fva;Database=EvaluationService;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Evaluation.Domain.Model.Entities;
+﻿using Evaluation.Domain.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,7 +8,11 @@ namespace Evaluation.Infrastructure.Data.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<Question> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Text)
+                .HasMaxLength(255)
+                .IsRequired();
         }
     }
 }

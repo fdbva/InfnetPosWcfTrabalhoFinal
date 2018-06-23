@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="AdminAuthentication.Wcf.AdminUserService" CodeBehind="AdminUserService.svc.cs" %>
