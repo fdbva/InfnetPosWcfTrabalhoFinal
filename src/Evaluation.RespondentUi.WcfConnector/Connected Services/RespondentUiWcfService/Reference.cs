@@ -64,6 +64,12 @@ namespace RespondentUiWcfService
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRespondentUiService/Add", ReplyAction="http://tempuri.org/IRespondentUiService/AddResponse")]
         System.Threading.Tasks.Task<RespondentUiWcfService.QuestionViewModel> AddAsync(RespondentUiWcfService.QuestionViewModel obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRespondentUiService/AddWithoutCommit", ReplyAction="http://tempuri.org/IRespondentUiService/AddWithoutCommitResponse")]
+        System.Threading.Tasks.Task<RespondentUiWcfService.QuestionViewModel> AddWithoutCommitAsync(RespondentUiWcfService.QuestionViewModel obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRespondentUiService/Commit", ReplyAction="http://tempuri.org/IRespondentUiService/CommitResponse")]
+        System.Threading.Tasks.Task CommitAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.0")]
@@ -119,6 +125,16 @@ namespace RespondentUiWcfService
         public System.Threading.Tasks.Task<RespondentUiWcfService.QuestionViewModel> AddAsync(RespondentUiWcfService.QuestionViewModel obj)
         {
             return base.Channel.AddAsync(obj);
+        }
+        
+        public System.Threading.Tasks.Task<RespondentUiWcfService.QuestionViewModel> AddWithoutCommitAsync(RespondentUiWcfService.QuestionViewModel obj)
+        {
+            return base.Channel.AddWithoutCommitAsync(obj);
+        }
+        
+        public System.Threading.Tasks.Task CommitAsync()
+        {
+            return base.Channel.CommitAsync();
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

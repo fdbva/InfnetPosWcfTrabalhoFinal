@@ -10,5 +10,11 @@ namespace Evaluation.RespondentUi.Wcf
     {
         [OperationContract]
         Task<QuestionViewModel> AddAsync(QuestionViewModel obj);
+
+        [OperationContract]
+        Task<QuestionViewModel> AddWithoutCommitAsync(QuestionViewModel obj);
+
+        [OperationContract]
+        Task CommitAsync();
     }
 }
